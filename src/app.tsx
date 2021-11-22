@@ -2,8 +2,11 @@ import React from "react";
 import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
 import { BottomTabBarProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { register } from "react-native-bundle-splitter";
 
-import { Country, History, Weekly } from "./pages";
+const Weekly = register({ loader: () => import("./pages/weekly") });
+const History = register({ loader: () => import("./pages/history") });
+const Country = register({ loader: () => import("./pages/country") });
 
 const Stack = createBottomTabNavigator();
 

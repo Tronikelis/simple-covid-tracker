@@ -13,7 +13,7 @@ export default function Weekly() {
     const [cache, setCache] = useMMKVStorage<Cache>("cache", storage, {});
 
     const onSuccess = (data: AxiosGetHistory) => {
-        if (cache && isEqual(data, cache[country ?? "null"])) {
+        if (cache && isEqual(data.All, cache[country ?? "null"])) {
             return;
         }
 

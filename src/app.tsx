@@ -1,34 +1,41 @@
-import React from "react";
-import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
-import { BottomTabBarProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import React, { useState } from "react";
+import { useWindowDimensions } from "react-native";
 import { register } from "react-native-bundle-splitter";
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
-const Weekly = register({ loader: () => import("./pages/weekly") });
-const History = register({ loader: () => import("./pages/history") });
+const Cases = register({ loader: () => import("./pages/cases") });
 const Country = register({ loader: () => import("./pages/country") });
 
-const Stack = createBottomTabNavigator();
+const renderScene = SceneMap({
+    Cases,
+    Country,
+});
 
-const BottomTabBar = ({ navigation, state }: BottomTabBarProps) => (
-    <BottomNavigation
-        selectedIndex={state.index}
-        onSelect={index => navigation.navigate(state.routeNames[index])}
-    >
-        <BottomNavigationTab title="Weekly" />
-        <BottomNavigationTab title="History" />
-        <BottomNavigationTab title="Country" />
-    </BottomNavigation>
+const renderTabBar = (props: any) => (
+    <TabBar
+        {...props}
+        indicatorStyle={{ backgroundColor: "#2196f3" }}
+        style={{ backgroundColor: "#212121" }}
+    />
 );
 
-export default function Navigation() {
+export default function App() {
+    const { width } = useWindowDimensions();
+
+    const [index, setIndex] = useState(0);
+    const [routes] = useState([
+        { key: "Cases", title: "Cases" },
+        { key: "Country", title: "Country" },
+    ]);
+
     return (
-        <NavigationContainer>
-            <Stack.Navigator tabBar={props => <BottomTabBar {...props} />}>
-                <Stack.Screen name="Weekly" component={Weekly} />
-                <Stack.Screen name="History" component={History} />
-                <Stack.Screen name="Country" component={Country} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <TabView
+            renderTabBar={renderTabBar}
+            renderScene={renderScene}
+            navigationState={{ index, routes }}
+            onIndexChange={setIndex}
+            initialLayout={{ width }}
+            tabBarPosition="bottom"
+        />
     );
 }

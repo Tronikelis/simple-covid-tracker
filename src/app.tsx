@@ -3,13 +3,11 @@ import { useWindowDimensions } from "react-native";
 import { register } from "react-native-bundle-splitter";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
-const Weekly = register({ loader: () => import("./pages/weekly") });
-const History = register({ loader: () => import("./pages/history") });
+const Cases = register({ loader: () => import("./pages/cases") });
 const Country = register({ loader: () => import("./pages/country") });
 
 const renderScene = SceneMap({
-    Weekly,
-    History,
+    Cases,
     Country,
 });
 
@@ -26,8 +24,7 @@ export default function App() {
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
-        { key: "Weekly", title: "Weekly" },
-        { key: "History", title: "History" },
+        { key: "Cases", title: "Cases" },
         { key: "Country", title: "Country" },
     ]);
 

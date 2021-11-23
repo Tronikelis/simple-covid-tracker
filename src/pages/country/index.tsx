@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, LegacyRef, MutableRefObject } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRedaxios } from "use-redaxios";
 import { Searchbar } from "react-native-paper";
 import { Text, Surface } from "react-native-paper";
@@ -23,7 +23,7 @@ export default function Country() {
     const listRef = useRef<ScrollView>(null);
 
     useEffect(() => {
-        if ((countries?.length as any) < 1) return;
+        if ((countries?.length as any) > 1) return;
 
         get().then(data => {
             const keys = Object.keys(data);
@@ -42,9 +42,9 @@ export default function Country() {
         setCountry(data?.[idx] ?? "Global");
         setQuery(data?.[idx] ?? "Global");
     };
-
+    
     return (
-        <View style={{ flex: 1, flexDirection: "column" }}>
+        <View style={{ flex: 1, flexDirection: "column", backgroundColor: "white" }}>
             <View style={{ padding: 10 }}>
                 <Searchbar
                     placeholder="Search countries"

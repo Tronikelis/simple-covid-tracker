@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native-paper";
-import { SafeAreaView, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 import useRedaxios from "use-redaxios";
 import { dequal as isEqual } from "dequal";
@@ -27,12 +27,12 @@ export default function Weekly() {
     );
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: "white" }}>
             <Text style={{ textAlign: "center" }}>{country ?? ""}</Text>
 
             <ScrollView style={{ flex: 1 }}>
                 <Text>{JSON.stringify(data ?? cache, null, 2)}</Text>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     );
 }

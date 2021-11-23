@@ -5,6 +5,7 @@ import App from "./app";
 
 const theme: typeof DefaultTheme = {
     ...DefaultTheme,
+    dark: false,
     colors: {
         ...DefaultTheme.colors,
         primary: "#2196f3",

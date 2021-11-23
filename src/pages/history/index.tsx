@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Text, } from "@ui-kitten/components";
+import { Layout, Text } from "@ui-kitten/components";
 import { SafeAreaView } from "react-native";
 
 export default function History() {
@@ -9,5 +9,5 @@ export default function History() {
                 <Text>History</Text>
             </Layout>
         </SafeAreaView>
-    )
+    );
 }

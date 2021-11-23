@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Text } from "@ui-kitten/components";
-import { SafeAreaView, View, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 import useRedaxios from "use-redaxios";
 import { dequal as isEqual } from "dequal";
@@ -34,7 +34,7 @@ export default function Weekly() {
                 </Text>
 
                 <ScrollView style={{ flex: 1 }}>
-                    <Text>{JSON.stringify(data, null, 2)}</Text>
+                    <Text>{JSON.stringify(data ?? cache, null, 2)}</Text>
                 </ScrollView>
             </Layout>
         </SafeAreaView>

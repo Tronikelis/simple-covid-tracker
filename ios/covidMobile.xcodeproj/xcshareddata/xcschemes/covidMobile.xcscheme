@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "covidMobile.app"
-               BlueprintName = "covidMobile"
-               ReferencedContainer = "container:covidMobile.xcodeproj">
+               BuildableName = "TCovid.app"
+               BlueprintName = "TCovid"
+               ReferencedContainer = "container:TCovid.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "covidMobileTests.xctest"
-               BlueprintName = "covidMobileTests"
-               ReferencedContainer = "container:covidMobile.xcodeproj">
+               BuildableName = "TCovidTests.xctest"
+               BlueprintName = "TCovidTests"
+               ReferencedContainer = "container:TCovid.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "covidMobile.app"
-            BlueprintName = "covidMobile"
-            ReferencedContainer = "container:covidMobile.xcodeproj">
+            BuildableName = "TCovid.app"
+            BlueprintName = "TCovid"
+            ReferencedContainer = "container:TCovid.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "covidMobile.app"
-            BlueprintName = "covidMobile"
-            ReferencedContainer = "container:covidMobile.xcodeproj">
+            BuildableName = "TCovid.app"
+            BlueprintName = "TCovid"
+            ReferencedContainer = "container:TCovid.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useRedaxios } from "use-redaxios";
-import { Searchbar } from "react-native-paper";
-import { Text, Surface } from "react-native-paper";
+import { Text, Surface, Searchbar } from "react-native-paper";
 import { API_URL } from "../../constants";
 import { AxiosGetCases } from "../../types";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 import { storage } from "../../storage";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, TouchableNativeFeedback } from "react-native";
 
 const filter = (item: string, query: string) =>
     item.toLowerCase().includes(query.toLowerCase());
@@ -42,7 +41,7 @@ export default function Country() {
         setCountry(data?.[idx] ?? "Global");
         setQuery(data?.[idx] ?? "Global");
     };
-    
+
     return (
         <View style={{ flex: 1, flexDirection: "column", backgroundColor: "white" }}>
             <View style={{ padding: 10 }}>
@@ -55,13 +54,11 @@ export default function Country() {
 
             <ScrollView style={{ flex: 1, flexDirection: "column" }} ref={listRef}>
                 {data?.map((value, i) => (
-                    <Surface
-                        key={i}
-                        style={{ elevation: 4, margin: 10, padding: 10 }}
-                        onTouchEnd={() => onSelect(i)}
-                    >
-                        <Text>{value}</Text>
-                    </Surface>
+                    <TouchableNativeFeedback key={i} onPress={() => onSelect(i)}>
+                        <Surface style={{ elevation: 4, margin: 10, padding: 10 }}>
+                            <Text>{value}</Text>
+                        </Surface>
+                    </TouchableNativeFeedback>
                 ))}
             </ScrollView>
         </View>

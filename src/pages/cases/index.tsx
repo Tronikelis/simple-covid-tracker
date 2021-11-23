@@ -95,7 +95,7 @@ export default function Weekly() {
                 <Button
                     mode="contained"
                     style={{ marginVertical: 20 }}
-                    onTouchEnd={() => setIndex(i => i + 10)}
+                    onPress={() => setIndex(i => i + 10)}
                 >
                     Show more
                 </Button>

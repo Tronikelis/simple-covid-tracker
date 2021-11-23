@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Text } from "@ui-kitten/components";
+import { Text } from "react-native-paper";
 import { SafeAreaView, ScrollView } from "react-native";
 import { useMMKVStorage } from "react-native-mmkv-storage";
 import useRedaxios from "use-redaxios";
@@ -28,15 +28,11 @@ export default function Weekly() {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <Layout style={{ flex: 1 }}>
-                <Text style={{ textAlign: "center" }} category="h1">
-                    {country ?? ""}
-                </Text>
+            <Text style={{ textAlign: "center" }}>{country ?? ""}</Text>
 
-                <ScrollView style={{ flex: 1 }}>
-                    <Text>{JSON.stringify(data ?? cache, null, 2)}</Text>
-                </ScrollView>
-            </Layout>
+            <ScrollView style={{ flex: 1 }}>
+                <Text>{JSON.stringify(data ?? cache, null, 2)}</Text>
+            </ScrollView>
         </SafeAreaView>
     );
 }

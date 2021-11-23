@@ -1,13 +1,21 @@
 import React from "react";
-import * as eva from "@eva-design/eva";
-import { ApplicationProvider } from "@ui-kitten/components";
+import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
 
 import App from "./app";
 
+const theme: typeof DefaultTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        primary: "#2196f3",
+        accent: "#212121",
+    },
+};
+
 export default function Entry() {
     return (
-        <ApplicationProvider {...eva} theme={eva.light}>
+        <PaperProvider theme={theme}>
             <App />
-        </ApplicationProvider>
+        </PaperProvider>
     );
 }
